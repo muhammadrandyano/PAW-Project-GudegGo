@@ -2,7 +2,18 @@ const pool = require('../config/database');
 
 // READ (Semua data)
 exports.getAllProduk = async () => {
-    const query = 'SELECT * FROM produk ORDER BY id ASC';
+    // Menggunakan CASE untuk kustomisasi urutan berdasarkan nama produk
+    const query = `
+        SELECT * FROM produk 
+        ORDER BY 
+            CASE nama
+                WHEN 'Gudeg Kaleng Biasa' THEN 1
+                WHEN 'Gudeg Kaleng Ambyar' THEN 2
+                WHEN 'Gudeg Kaleng Edan' THEN 3
+                WHEN 'Gudeg Kaleng Spesial (Telur)' THEN 4
+                ELSE 5
+            END ASC, id ASC
+    `;
     const result = await pool.query(query);
     return result.rows;
 };
