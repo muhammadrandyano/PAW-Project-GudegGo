@@ -3,49 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title><%= title %> | Gudeg Go</title>
+    <!-- Menggunakan Font Inter untuk kesan profesional -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: { 50: '#EEF2FF', 500: '#4F46E5', 600: '#4338CA', 700: '#3730A3' }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        body { background-color: #1a120b; color: #f8fafc; }
-        .glass { background: rgba(45, 30, 20, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(255, 215, 0, 0.2); }
-        .gold-text { color: #fbbf24; }
+        body { background-color: #FAFAFA; }
+        .hero-pattern {
+            background-color: #FAFAFA;
+            background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
     </style>
 </head>
-<body class="min-h-screen font-sans flex flex-col">
-    
+<body class="min-h-screen font-sans text-slate-800 antialiased flex flex-col">
+
     <!-- NAVBAR -->
-    <nav class="glass sticky top-0 z-50 p-4 shadow-lg">
-        <div class="max-w-5xl mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-600">
-                Gudeg Go
-            </h1>
-            <div class="flex gap-6 text-sm font-semibold text-amber-200/70">
-                <a href="/" class="text-amber-500">Home</a>
-                <a href="/katalog" class="hover:text-amber-400 transition-colors">Katalog Menu</a>
+    <nav class="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white font-bold text-xl shadow-md">
+                        G
+                    </div>
+                    <span class="text-2xl font-bold text-slate-900 tracking-tight">Gudeg Go</span>
+                </div>
+                <div class="hidden md:flex gap-8 text-sm font-medium text-slate-600">
+                    <a href="#fitur" class="hover:text-brand-600 transition-colors">Fitur</a>
+                    <a href="#cara-kerja" class="hover:text-brand-600 transition-colors">Cara Kerja</a>
+                    <a href="#testimoni" class="hover:text-brand-600 transition-colors">Testimoni</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="/katalog" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors">Login Admin</a>
+                    <a href="/katalog" class="bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold py-2.5 px-6 rounded-full shadow-lg shadow-brand-500/30 transition-all hover:-translate-y-0.5">Pesan Sekarang</a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION HOMEPAGE -->
-    <main class="flex-grow flex items-center justify-center p-8">
-        <div class="max-w-3xl text-center">
-            <h1 class="text-6xl font-extrabold text-white mb-6 leading-tight">
-                Bawa Pulang <span class="gold-text">Oleh-Oleh Legendaris</span> Jogja
+    <!-- HERO SECTION -->
+    <section class="hero-pattern pt-20 pb-24 lg:pt-32 lg:pb-40 overflow-hidden relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-600 text-sm font-semibold mb-6">
+                <span class="flex h-2 w-2 rounded-full bg-brand-500"></span>
+                Layanan Pesan Antar Resmi Yu Djum
+            </div>
+            <h1 class="text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6 max-w-4xl mx-auto">
+                Bawa Pulang <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-blue-500">Oleh-Oleh Legendaris</span> Jogja Tanpa Antri.
             </h1>
-            <p class="text-lg text-amber-200/70 mb-10 max-w-2xl mx-auto">
-                Pesan Gudeg Yu Djum tanpa perlu antri. Cek ketersediaan stok secara real-time dan pilih metode pengambilan sesuai rencana perjalananmu.
+            <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Pesan Gudeg Yu Djum secara online. Cek ketersediaan stok secara real-time, pilih pengiriman atau *pickup*, dan nikmati kemudahan bertransaksi dengan Asisten AI kami.
             </p>
-            <div class="flex justify-center gap-4">
-                <a href="/katalog" class="bg-amber-600 hover:bg-amber-500 text-white font-bold py-4 px-10 rounded-full transition-all shadow-[0_0_20px_rgba(217,119,6,0.5)] transform hover:scale-105">
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="/katalog" class="bg-brand-600 hover:bg-brand-700 text-white font-bold py-4 px-8 rounded-full shadow-xl shadow-brand-500/30 transition-all hover:-translate-y-1 text-lg">
                     Lihat Menu & Pesan
                 </a>
+                <a href="#cara-kerja" class="bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold py-4 px-8 rounded-full transition-all flex items-center justify-center gap-2">
+                    Pelajari Cara Kerja
+                </a>
+            </div>
+            
+            <!-- TRUST BADGE -->
+            <div class="mt-16 pt-8 border-t border-slate-200/60 max-w-3xl mx-auto">
+                <p class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-6">Dipercaya oleh wisatawan dari berbagai kota</p>
+                <div class="flex justify-center gap-8 opacity-60 grayscale">
+                    <!-- Mockup Logo Partner (Placeholder) -->
+                    <span class="text-xl font-bold font-serif">Traveloka</span>
+                    <span class="text-xl font-bold">Tiket.com</span>
+                    <span class="text-xl font-bold italic">KAI Access</span>
+                </div>
             </div>
         </div>
-    </main>
+    </section>
+
+    <!-- FITUR SECTION -->
+    <section id="fitur" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Kenapa Memilih Gudeg Go?</h2>
+                <p class="text-lg text-slate-500 max-w-2xl mx-auto">Kami mendigitalisasi pengalaman membeli oleh-oleh khas Jogja agar lebih praktis dan terpercaya.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Fitur 1 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:shadow-lg transition-shadow">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm border border-slate-200 flex items-center justify-center text-brand-600 mb-6">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Stok Real-time</h3>
+                    <p class="text-slate-600 leading-relaxed">Tidak perlu khawatir kehabisan. Status ketersediaan produk diperbarui langsung dari database toko secara akurat.</p>
+                </div>
+                <!-- Fitur 2 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:shadow-lg transition-shadow">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm border border-slate-200 flex items-center justify-center text-brand-600 mb-6">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Asisten AI Cerdas</h3>
+                    <p class="text-slate-600 leading-relaxed">Punya pertanyaan seputar menu atau pengiriman? Tanyakan langsung pada Asisten Virtual kami yang siap 24/7.</p>
+                </div>
+                <!-- Fitur 3 -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:shadow-lg transition-shadow">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm border border-slate-200 flex items-center justify-center text-brand-600 mb-6">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Pembayaran Aman</h3>
+                    <p class="text-slate-600 leading-relaxed">Transaksi terintegrasi dengan sistem pembayaran digital yang aman dan terverifikasi langsung oleh admin toko.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- FOOTER -->
-    <footer class="text-center p-6 text-amber-500/40 text-sm border-t border-amber-900/30">
-        &copy; 2026 Gudeg Go - Tugas PPAW Week 7.
+    <footer class="bg-slate-900 py-12 mt-auto">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white font-bold text-lg">G</div>
+                <span class="text-xl font-bold text-white tracking-tight">Gudeg Go</span>
+            </div>
+            <p class="text-slate-400 text-sm text-center md:text-left">
+                &copy; 2026 Gudeg Go. Platform Pemesanan Oleh-Oleh Resmi Yu Djum. <br class="md:hidden"> Dibuat untuk Tugas PPAW.
+            </p>
+            <div class="flex gap-4">
+                <a href="#" class="text-slate-400 hover:text-white transition-colors">Instagram</a>
+                <a href="#" class="text-slate-400 hover:text-white transition-colors">WhatsApp</a>
+            </div>
+        </div>
     </footer>
+
 </body>
 </html>
